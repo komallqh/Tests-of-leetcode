@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>two_sum</title>
+</head>
+<body>
+<script>
+//	//法1：建一个Obj对象
+//
+//	var twoSum =  function(nums, target){
+//		let Obj = {};
+//		let res = [];
+//		nums.forEach((e,i)=>Obj[e]=i);
+//
+//		
+//		for(var i = 0; i<nums.length; i++){
+//			let j = Obj[target - nums[i]];
+//			if(j && j != i){
+//				res=[i,j];
+//				break;
+//			}
+//		}
+//		return res;
+//	}
+//	var nums = [1,2,6,7];
+//	var target = 9;
+//	console.log(twoSum(nums,target));
+//
+//
+//	//法2：es6已经提供了一个Map对象可以用
+
+	var twoSum = function(nums, target) {
+    let map = new Map();
+    let res = [];
+    nums.forEach((e, i) => map.set(e, i));		// map.set(e, i)
+
+
+    for(let i=0;i<nums.length;i++) {
+        let j = map.get(target - nums[i]);		//map.get()
+        if(j && j !== i) {
+            res = [i, j];
+            break;
+        }
+    }
+
+    return res;
+};
+
+var nums = [2,7,11,15];
+	var target = 9;
+	console.log(twoSum(nums,target));
+
+//	用let定义以上变量：  		时间 96ms，内存：35.8M
+//	用var定义for中的i和j：	时间 112ms，内存：35.6M
+//	同一段代码，多次提交，运行时间也有几毫秒的差距，原来不是let和var的关系
+</script>
+
+</body>
+</html>
