@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	
+	//为什么不能把判断条件设置为true，原因如下
+//		var isPalindrome = function(x) {
+//    		var inToStr = x.toString();
+//    		for(var i = 0;i<inToStr.length/2;i++){
+//    			if(inToStr[i] == inToStr[inToStr.length-1-i]){
+//    				return true;
+//    			}
+//    		}
+//    		return false;
+//		};
+//		var a = isPalindrome(123461)
+//		console.log(a);
+	
+	//方法：将x转为字符串，设字符串长度为i，从中间分割开，分别比较intostr【0】==intostr【i】，intostr【1】==intostr【i-1】...
+
+		var isPalindrome = function(x) {
+    		var inToStr = x.toString();
+    		for(var i = 0;i<inToStr.length/2;i++){
+    			if(inToStr[i] != inToStr[inToStr.length-1-i]){
+    				return false;
+    			}
+    		}
+    		return true;
+		};
+		var a = isPalindrome(123461)
+		console.log(a);
+
+		//316,46
+
+
+
+		var isPalindrome = function(x){
+			var inToStr = String(x);	//String方法首字母大写！
+			var rev = inToStr.split('').reverse().join('');
+			if(rev == x){
+				return true;
+			}
+			return false;
+
+		}
+
+		//356,47
+
+
+
+
+//
+//		所需方法：
+//		replace
+//		var str="Visit Microsoft!"
+//		document.write(str.replace(/Microsoft/, "W3School"))
+//
+//		split：
+//		stringObject.split(separator,howmany)
+//		将字符串分割为字符串数组
+//		"2:3:4:5".split(":")	//将返回["2", "3", "4", "5"]
+
+//		join:
+//		join() 方法用于把数组中的所有元素放入一个字符串。
+//		元素是通过指定的分隔符进行分隔的,默认使用逗号分隔
+//		arrayObject.join(separator)
+	</script>
+</body>
+</html>

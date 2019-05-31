@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		
+//		方法：罗马数字正常情况下，从右到左对应的数值是递增的。
+//		最好的情况下：右边的值一直小于左边的值，则从右往左把相应的数值添加到result中去，最终得到result就可以了；
+//		含特殊情况：如出现右边的值大于左边，比如XLIV（44），从右往左比较，如果左边的值小于右边，则result减去左边的值；
+//		如下：curVal对应左值，max对应右值；
+
+
+
+
+		var romanToInt = function(s) {
+    		var obj = {"I":1,"V":5,"X":10,"L":50,"C":100,"D":500,"M":1000};
+    		var result = 0;
+    		var max = 0;
+    		for(var i =s.length-1;i>=0;i--){
+    			var curRoman = s[i];
+    			var curVal = obj[curRoman];
+    			result += (curVal >= max ? curVal : -curVal)
+    			max = Math.max(curVal,max);
+    		}
+    		return result; 
+		};
+		console.log(romanToInt("XLIV"));
+	</script>
+</body>
+</html>
