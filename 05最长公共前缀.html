@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+		//方法一：
+//		var longestCommonPrefix = function(strs) {
+//    		var firststr = strs[0];
+//    		var result = "";
+//    		if(!strs.length){
+//    			return result;
+//    		}
+//
+//    		for(var i = 0; i< firststr.length;i++){
+//    			for(var j = 1; j<strs.length;j++){
+//    				if(firststr[i] != strs[j][i]){
+//    					return result;
+//    				}
+//    			}
+//    			result += firststr[i]
+//    		}
+//    		return result;
+//
+//		};
+//		var strs =  ["dog","racecar","car"];
+//		console.log(longestCommonPrefix(strs))
+//
+
+		//120		35
+
+
+	
+var longestCommonPrefix = function(strs) {
+  if (strs.length === 0) return '';
+  let res = strs.reduce( (x, y) => {
+    let temp = ''
+    for (let i=0, j=0, leni=x.length, lenj=y.length; i<leni & j<lenj; i++,j++) {
+      if (x[i] === y[j]) { temp += x[i] }
+      else { break; }
+    }
+    return temp;
+  })
+  return res
+}
+	var strs = ["flower","flowm","flight","f"];
+	console.log(longestCommonPrefix(strs))
+
+	//84  37.1
+
+//箭头函数：
+//(x,y)=> x+y		//相当于(x,y)=> {return (x+y)}
+//
+//(参数1, 参数2, …, 参数N) => { 函数声明 }		//函数声明也是要有返回值的，不然这个函数就没意义了
+//
+//所以，我想说的是箭头函数后面的函数表达式加了{}，就要有return值；如果只是单一的表达式，可以不写{}，不写return；
+//
+
+//reduce 函数：
+//arr = [1,2,3,4,5];
+//var a = arr.reduce( (x,y)=> b=x+y)
+//console.log(a);
+//reduce函数没有设置初始值，就会把arr[0]和arr[1]分别代入x和y，然后带入函数中去，此时会得到一个返回值b；
+//接着还会将生成的b和arr[2]分别代入x和y，然后带入函数中去，此时再会得到一个返回值b；如此循环往复，直到遍历完数组中所有对象，然后会得到一个最终的值
+	</script>
+</body>
+</html>
