@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<!-- 	示例 1:
+
+输入: [1,2,3]
+输出: [1,2,4]
+解释: 输入数组表示数字 123。
+示例 2:
+
+输入: [4,3,2,1]
+输出: [4,3,2,2]
+解释: 输入数组表示数字 4321。
+ -->
+
+	<script>
+		//我想的解法：
+		/*var plusOne = function(digits) {
+		    var num = parseInt(digits.join(''))+1;
+		    console.log(digits.join(''));
+		    //6145390195186705543
+
+		    console.log(parseInt(digits.join('')));
+		    //6145390195186705000
+
+		    console.log(Number(digits.join('')));
+		    //6145390195186705000
+
+		    var b = String(num);
+		    var c = b.split('');
+		};
+		var arr = [6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,3];
+		plusOne(arr);*/
+
+		/*js能表示的浮点数的最大值是正负1.7976931348623157乘以10的308次方，其最小所能表示的小数为正负5乘以10的负324次方
+		
+		但js能够表示整数的范围是正负数的绝对值都不能大于2^53
+
+		也就是正负数的绝对值都不能大于9007199254740992，这个数是16位，超过16位的整数就不能精确表示了
+
+		JavaScript大数从来不用Number类型 都是字符串*/
+
+
+		/*正解：没看懂！！*/
+
+		var plusOne = function (digits) {
+  const values = digits.reverse();
+  let i = 0;
+  values[i] += 1;
+  while (true) {
+    if (values[i] >= 10) {
+      values[i] = 0;
+      if (values[i + 1] === undefined) {
+        values[i + 1] = 1;
+        break;
+      } else {
+        values[i + 1] += 1
+      }
+      i++
+    } else {
+      break;
+    }
+  }
+  return values.reverse()
+};
+
+
+	</script>
+</body>
+</html>
