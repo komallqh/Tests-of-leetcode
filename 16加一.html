@@ -12,6 +12,7 @@
 解释: 输入数组表示数字 123。
 示例 2:
 
+
 输入: [4,3,2,1]
 输出: [4,3,2,2]
 解释: 输入数组表示数字 4321。
@@ -45,28 +46,38 @@
 		JavaScript大数从来不用Number类型 都是字符串*/
 
 
-		/*正解：没看懂！！*/
+		/*解法：
+		先倒序，判断第一个数加一后是否等于10；
+
+			不等于10：直接将数组反转返回；
+
+			等于10：判断下一个数是否有定义；
+				如果没定义，则表示一开始数组只有一个值；下一位数变为1，数组反转返回；
+				如果有定义，则让下一位递归做加一运算；*/
+
 
 		var plusOne = function (digits) {
-  const values = digits.reverse();
-  let i = 0;
-  values[i] += 1;
-  while (true) {
-    if (values[i] >= 10) {
-      values[i] = 0;
-      if (values[i + 1] === undefined) {
-        values[i + 1] = 1;
-        break;
-      } else {
-        values[i + 1] += 1
-      }
-      i++
-    } else {
-      break;
-    }
-  }
-  return values.reverse()
-};
+		  const values = digits.reverse();
+		  let i = 0;
+		  values[i] += 1;
+		  while (true) {
+		    if (values[i] >= 10) {
+		      values[i] = 0;
+		      if (values[i + 1] === undefined) {
+		        values[i + 1] = 1;
+		        break;
+		      } else {
+		        values[i + 1] += 1
+		      }
+		      i++
+		    } else {
+		      break;
+		    }
+		  }
+		  return values.reverse()
+		};
+
+
 
 
 	</script>
