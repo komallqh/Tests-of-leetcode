@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var singleNumber = function(nums) {
+			var obj = {};
+			var n;
+    		for(var i=0,len = nums.length;i<len;i++){
+    			var that = this;
+    			if(obj[nums[i]]===undefined){
+
+    				obj[nums[i]] = nums[i];
+    				/*n = that.nums[i];*/
+    			}else{
+    				delete obj[nums[i]];
+    			}
+
+    		}
+    		return obj[n];
+		};
+		var arr = [2,1,2]
+		console.log(singleNumber(arr))
+	</script>
+</body>
+</html>
