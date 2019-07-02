@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var addBinary = function(a, b) {
+			var arrA = a.split().reverse();
+			var arrB = b.split().reverse();
+    		var l=Math.min(arrA.length,arrB.length);
+    		var newArr =[];
+    		var flag =false;
+    		for(var i=0;i<l;i++){
+    			if(flag+arrA[i]+arrB[i]<2){
+    				newArr[i] = arrA[i] + arrB[i];
+    				continue;
+    			}else if(flag+arrA[i]+arrB[i]==2){
+    				newArr[i] = 0;
+    				flag = true;
+    				continue;
+    			}else{
+    				newArr[i] = 1;
+    				flag = true;
+    				continue;
+    			}
+    		}
+    		console.log(newArr.reverse().join(''));
+    		return newArr.reverse().join('');
+    		
+		};
+		addBinary("11","1");
+	</script>
+</body>
+</html>
