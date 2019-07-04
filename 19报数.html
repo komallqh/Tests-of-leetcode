@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+//		var countAndSay = function (n) {
+//
+//			/*??没看懂??*/
+//
+//		    if (n < 1) return '';
+//		    if (n == 1) return '1';
+//		    var arr = ['1'];
+//		    for (var i = 2; i <= n; i++) {
+//		        var str = arr[i - 2];
+//		        var len = 1;
+//		        arr[i - 1] = '';
+//		        var len2 = str.length;
+//		        var temp;
+//		        for (var j = 0; j < str.length; j++) {
+//		            if (len2 == 1) {
+//		                arr[i - 1] = '11';
+//		            } else if (len2 == 2 && str[0] == '1') {
+//		                arr[i - 1] = '21';
+//		            } else if (len == 2 && str[0] == '2') {
+//		                arr[i - 1] = '1211';
+//		            } else {
+//		              if(j==0){
+//		                  temp = str[0]
+//		              } else if(j==len2-1){
+//		                 arr[i-1] += str[j] == str[j-1] ? (++len+temp): (len+temp+'1'+str[j])
+//		              } else {
+//		                  if(str[j] == str[j-1]){
+//		                      len++
+//		                  } else {
+//		                      arr[i-1] += (len+temp);
+//		                      temp = str[j];
+//		                      len = 1;
+//		                  }
+//		              }
+//		            }
+//		        }
+//		    }
+//		    return arr[n-1]
+//		};
+
+/**
+ * @param {number} n
+ * @return {string}
+ */
+//		var countAndSay = function(n) {
+//		  if ( n === 1 ) {
+//		    return '1';
+//		  }
+//		  var intstr = '11';
+//		  var count = 1;
+//		  var s_temp = '';
+//		  for ( var i = 2; i < n; i ++ ) {
+//		    for ( var j = 1; j < intstr.length; j ++ ) {
+//		      if (intstr[j] === intstr[j - 1]) {
+//		        count ++;
+//		      } else {
+//		        s_temp = s_temp + count + intstr[j - 1];
+//		        count = 1;
+//		      }
+//		      if (j === intstr.length - 1) {
+//		        s_temp = s_temp + count + intstr[j];
+//		      }
+//		    }
+//		    count = 1;
+//		    intstr = s_temp;
+//		    s_temp = ''; 
+//		  }
+//		  return intstr;
+//		}
+
+
+
+//		var countAndSay = function(n) {
+//		  if(n==1) return '1'
+//		  function say(str){
+//		    var reg = /(\d)\1*/g
+//		    var result = ''
+//		    var result_str = ''
+//		    while(result = reg.exec(str)){
+//		      result_str += result[0].length + result[1]
+//		    }
+//		    return result_str
+//		  }  
+//
+//		  return say(countAndSay(n-1))
+//		};
+
+
+		var countAndSay = function(n) {
+		    return createStr(1, ['1'], n)
+		
+			function createStr(index, str, n) {
+		        if(index == n)
+		            return str.join('')//终止条件：查询到了第n个数了，立即返回，否则index+1
+		        index++
+		        let newChar = []
+		        let k = 1//保存该数存在次数：当查询到不等的时候，在下方重置k
+		        for(let j = 0; j < str.length; j++) {
+		            let char = str[j]
+		            if(char == str[j+1] && j != str.length - 1) {//不等，且遍历没到底，那就继续寻找
+		                   k++
+		            }else {
+		                newChar.push(k)
+		                newChar.push(str[j])
+		                k=1
+		            }
+		        }
+		        return createStr(index, newChar, n)
+		    }  
+		}
+		
+
+
+	</script>
+</body>
+</html>
