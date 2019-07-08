@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		
+		var lemonadeChange = function(bills) {
+		  let five = 0, ten = 0;
+		  for(let bill of bills){
+		    if(bill == 5) five++;
+		    else if(bill == 10 && five > 0) { ten++; five--;}
+		    else if(bill == 20  && ten > 0 && five > 0 ) { ten--; five--;}
+		    else if(bill == 20  && five >= 3 ) five -= 3;
+		    else { return false;}
+		  }
+		  return true;
+		};
+	</script>
+</body>
+</html>
