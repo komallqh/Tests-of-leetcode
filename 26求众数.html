@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var majorityElement = function(nums) {
+  let len = nums.length, count = 1, val = nums[0]
+  for (let i = 0; i < len; i++) {
+    if (nums[i] === val) {
+      count++
+    } else {
+      count--
+    }
+    if (count === 0) {
+      val = nums[i]
+      count = 1
+    }
+  }
+  return val
+}
+
+	</script>
+</body>
+</html>
