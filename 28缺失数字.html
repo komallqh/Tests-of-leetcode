@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var missingNumber = function(nums) {
+    		var sum = 0 ;
+    		var len = nums.length;
+    		for(var i = 0; i < len; i++){
+    			sum += nums[i];	
+    		}
+    		sum1 = len*(len+1)/2;
+
+    		return sum1-sum;
+
+		};
+
+		nums = [1];
+		var a = missingNumber(nums);
+		console.log(a);
+	</script>
+</body>
+</html>
