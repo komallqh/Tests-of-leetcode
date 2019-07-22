@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var flipAndInvertImage = function(A) {
+    		for(var i = 0; i < A.length; i++){
+    			A[i].reverse();
+    			for(var j = 0; j<A.length; j++){
+    				if(A[i][j]){
+    					A[i][j] = 0;
+    				}else{
+    					A[i][j] = 1;
+    				}
+    			}	
+    		}
+    		return A;
+    		
+    		
+		};
+
+
+		//大牛做法：
+/*		var flipAndInvertImage = function(A) {
+	    let result = [];
+	    A.map(a => {
+	        a = a.reverse().map(b => {
+	            return Number(!Boolean(b));
+	        });
+	        result.push(a);
+	    });
+    
+    return result;
+};
+*/
+		var A =  [[1,1,0,0],[1,0,0,1],[0,1,1,1],[1,0,1,0]];
+		var a = flipAndInvertImage(A);
+		console.log(a);
+	</script>
+</body>
+</html>
