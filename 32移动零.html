@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+		//自己做法：
+//		var moveZeroes = function(nums) {
+//    		var j = nums.length-1;
+//    		for(var i = nums.length-1; i>=0; i--){
+//    			if(nums[j]!==0){
+//    				var a = nums.splice(j,1)
+//    				nums.unshift(a[0]);
+//    			}else{
+//    				j--;
+//    			}
+//
+//    		}
+//    		return nums;
+//		};
+//		var nums = [0,1,0,3,12];
+//		var n = moveZeroes(nums);
+//		console.log(n);
+
+		//大牛做法：
+		var moveZeroes = function(nums){
+			const max = nums.length-1;
+
+			let start = 0;
+			let end = max -1;
+
+			while(start < end){
+				const item = nums[start];
+				if(item === 0){
+					nums.splice(start,1);
+					nums.push(0);
+					end--;
+					continue;
+				}
+				start++;
+			}
+		}
+	</script>
+</body>
+</html>
