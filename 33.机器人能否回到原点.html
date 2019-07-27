@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+		//自己做法：
+//		var judgeCircle = function(moves) {
+//    		let l = 0;
+//    		let r = 0;
+//    		let u = 0;
+//    		let d = 0;
+//    		const len = moves.length;
+//    		for(let i = 0; i<len; i++){
+//    			switch(moves[i]){
+//    				case "U":
+//    				u++;
+//    				break;
+//    				case "D":
+//    				d++;
+//    				break;
+//    				case "L":
+//    				l++;
+//    				break;
+//    				case "R":
+//    				r++;
+//    				break;
+//    			}
+//    		}
+//    		if(l === r && u === d){
+//    			return true
+//    		}else{
+//    			return false;
+//    		}
+//		};
+//
+//		var moves = "LL"
+//		var a = judgeCircle(moves)
+//		console.log(a);
+
+
+
+		//大牛做法：
+		var judgeCircle = function(moves) {
+			let v = 0;		//vertical
+			let h = 0;		//horizontal
+			
+			moves.split('').map(m =>{
+				switch(m){
+					case "U":{
+						v++;
+						break;
+					}
+					case "D":{
+					v--;
+					break;
+					}
+					case "L":{
+						h++;
+						break;
+					}
+					case "R":{
+					h--;
+					break;
+					}
+					default: break;
+				}
+			})
+			if(h === 0 && v === 0){
+				return true
+			}else{
+				return false;
+			}
+		};
+		var moves = "LL"
+		var a = judgeCircle(moves)
+		console.log(a);
+	</script>
+</body>
+</html>
