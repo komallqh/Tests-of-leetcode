@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//一次失败的尝试
+//		var toGoatLatin = function(S) {
+//		    var obj = {"a":1,"e":1,"i":1,"o":1,"u":1}
+//		    var arr = S.split(" ");
+//		    var len = arr.length;
+//		    console.log(arr);
+//
+//		    for(var i=0; i<len; i++){
+//		    	/*console.log(arr[i])*/
+//		    	/*console.log(arr[i][0])*/
+//		    	var o = arr[i][0].toLowerCase();
+//		    	/*console.log(o);*/
+//		    	if(!obj[o]){
+//		    		/*console.log(o)*/
+//		    		var head = arr[i].substr(0,1);
+//		    		var tail = arr[i].substr(1);
+//		    		arr[i] =tail + head;
+//		    	}
+//
+//		    	arr[i] += ("ma"+(i+1)*'a');		//这里乘法报错
+//
+//
+//		    }
+//		    console.log(arr);
+//		    
+//		};		
+
+		/**
+		 * @param {string} S
+		 * @return {string}
+		 */
+		var toGoatLatin = function(S) {
+		  let words = S.split(' '),
+		      index = 1,
+		      result_words = [];
+		  for (let word of words) {
+		    switch (word[0].toLowerCase()) {
+		      case 'a':
+		      case 'e':
+		      case 'i':
+		      case 'o':
+		      case 'u':
+		        break;
+		      default:
+		        word = word.slice(1) + word[0];
+		        break;
+		    }
+		    console.log(Array(index + 1))
+		    console.log(Array(index + 1).join('a'))
+		    word += 'ma' + Array(index + 1).join('a');
+		    //Array(index + 1).join('a')
+		    //当index为1时，创建了一个空数组，里面包含两个空值，将两个空值以a进行分割，即达到插入一个a的效果
+		    result_words.push(word);
+		    index ++;
+		  }
+		  return result_words.join(' ');
+		};
+		toGoatLatin("I speak Goat Latin");
+	</script>
+	
+</body>
+</html>
